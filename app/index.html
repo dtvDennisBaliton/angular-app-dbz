@@ -6,27 +6,62 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>My AngularJS Mapping Page</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <!-- leaflet additions --> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+
+  <!-- Open Layers start here -->
+  <script src="http://openlayers.org/api/OpenLayers.js"></script>
+  <script src="https://openlayers.org/en/v4.0.1/build/ol.js" type="text/javascript"></script>
+
+  
+
+            <!--
+                The first part is to include the JavaScript library. For the purpose of this tutorial, here we simply 
+                point to the openlayers.org website to get the whole library. In a production environment, we would 
+                build a custom version of the library including only the module needed for our application.
+
+                Optional: If the application is intended to run on old platforms like Internet Explorer or Android 4.x, 
+                another script needs to be included before OpenLayers:
+                -->
+
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList"></script>
+  
+
 </head>
 <body>
   <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
+    <li><a href="#!/views1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
+    <li><a href="#!/osm">Leaflet OSM</a></li>
+    <li><a href="#!/openLayer">OpenLayer</a></li>
   </ul>
+
+  <div id="mapid"></div>
+
+
+  <div id="mapol"></div>
+
+  
+
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
+
   <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+   <!--<div>Angular seed app: v<span app-version></span></div> -->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -36,8 +71,17 @@
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
+  <script src="osm/osm.js"></script>
+  <script src="openlayer/openlayer.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+
+
 </body>
+
+
+
+
+
 </html>
